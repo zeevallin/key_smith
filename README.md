@@ -28,23 +28,10 @@ require "key_smith"
 ```
 
 ### Translate
-Translate key names using a map.
+Translate key names using a map with `#translate` or `#translate!`
 
 ```ruby
-hash = { :mid => "56632", manDate => "2011-01-01" }
-map = { mid: :machine_id, manDate: :manufactured_at }
-
-data.translate map
+hash = { :mid => "56632", :manDate => "2011-01-01" }
+hash.translate mid: :machine_id, manDate: :manufactured_at
 # => { machine_id: "56632", manufactured_at: "2011-01-01" }
-```
-
-Translate on the same object
-
-```ruby
-hash = { firstName: "Philip", lastName: "Vieira" }
-map = { firstName: :first_name, lastName: :last_name }
-hash.translate! map
-
-hash
-# => { first_name: "Philip", last_name: "Vieira" }
 ```
